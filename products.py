@@ -91,7 +91,7 @@ class Product:
         """
         Prints the product details in a human-readable format.
         """
-        print(f"{self.name}, Price: {self.price}, Quantity: {self.quantity}")
+        return f"{self.name}, Price: {self.price}, Quantity: {self.quantity}"
 
 
     def buy(self, quantity):
@@ -116,6 +116,19 @@ class Product:
         total = quantity * self.price
         self.set_quantity(self.get_quantity() - quantity)
         return round(total, 2)
+
+
+    def __str__(self):
+        """
+        Returns a string representation of the product for printing.
+
+        This method is called when using print(product),
+        and returns the same string as the `show()` method.
+
+        Returns:
+            str: A human-readable string with the product's details.
+        """
+        return self.show()
 
 
 def main():
